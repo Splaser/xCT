@@ -1,3 +1,22 @@
+# The future of xCT+ in Midnight
+
+xCT+ will not work in any capacity in the WoW Midnight expansion as it currently stands.
+
+After some testing in the beta and now in prepatch this is what I've concluded:
+- The event `COMBAT_LOG_EVENT_UNFILTERED` is gone. 
+  - Thats how this addon got almost all of its information.
+- `COMBAT_LOG_EVENT` is gone too.
+- I can register a handler for the `UNIT_COMBAT` event, and it gives me some data but its really lackluster:
+  - No source unit of the damage? (e. g. Did I do that or did another player do that? Who damaged me?)
+  - No spell ID (was it a melee attack or a spell?)
+  - Is dependent on your Combat Log filter (see your chat box).
+- `C_CombatText.GetCurrentEventInfo()` is supposed to provide these informations as `(secret value)`, but it just returns `nil` at the moment.
+
+If something changes I'll look at it again. Even a reduced form of xCT+ would be fine for me but that does not 
+seem possible right now.
+
+If anybody knows more and could help me bring some functionality to Midnight, please feel free to contact me via Github or ingame (Feylynn-Antonidas).
+
 # xCT+
 
 Created for optimal performance in the toughest fights, a rugged combat text add-on is finally ready to be put to the 
@@ -23,23 +42,6 @@ For those that have used Affli’s xCT Add-On, xCT+ expands the functionality of
 * A redesigned Spell Merger to cut down on the spam
 * Profiles
 * And many more exciting new features!
-
-## The future of xCT+ in Midnight
-
-I recently gained access to the Midnight beta and tested some things:
-- Listening for event `COMBAT_LOG_EVENT_UNFILTERED` is gone. Thats how this addon got almost all of its information.
-- Same for `COMBAT_LOG_EVENT`
-- I can register a handler for `UNIT_COMBAT` event and it gives me some data but its really lackluster:
-  - No source unit of the damage? (e. g. Did I do that or did another player do that? Who damaged me?)
-  - No spell ID (was it a melee attack or a spell?)
-  - Is dependent on your Combat Log filter (see your chat box).
-- `C_CombatText.GetCurrentEventInfo()` is supposed to provide these informations as `(secret value)`, but it just returns `nil` at the moment.
-
-Currently I'm not optimistic that xCT+ will work in any capacity in the WoW Midnight expansion. 
-If something changes I'll look at it again. Even a reduced form of xCT+ would be fine for me but that does not 
-seem possible right now.
-
-If anybody knows more and could help me bring some functionality to Midnight, please feel free to contact me via Github or ingame.
 
 ## The future of xCT+ in TWW and beyond
 
